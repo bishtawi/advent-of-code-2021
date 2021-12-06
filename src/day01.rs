@@ -1,31 +1,33 @@
 use crate::shared;
 use anyhow::Result;
 
+const DAY: i32 = 1;
 const WINDOW_SIZE: usize = 3;
 
 #[allow(dead_code)]
-pub fn solve(day: i32) -> Result<()> {
-    println!("Day {} = {}::{}", day, part1(day)?, part2(day)?);
+pub fn solve() -> Result<()> {
+    println!("Day {} = {} :: {}", DAY, part1()?, part2()?);
 
     Ok(())
 }
 
-fn part1(day: i32) -> Result<i32> {
-    let lines = shared::read_input(day)?;
-    let (count, _) = lines.fold((0, i32::MAX), |(count, prev), line| {
-        let cur = line.unwrap().parse::<i32>().unwrap();
+fn part1() -> Result<i32> {
+    let lines = shared::read_input(DAY)?;
+    let (count, _) = lines.fold(Ok((0, i32::MAX)), |acc: Result<(i32, i32)>, line| {
+        let (count, prev) = acc?;
+        let cur = line?.parse::<i32>()?;
         if prev >= cur {
-            (count, cur)
+            Ok((count, cur))
         } else {
-            (count + 1, cur)
+            Ok((count + 1, cur))
         }
-    });
+    })?;
 
     Ok(count)
 }
 
-fn part2(day: i32) -> Result<i32> {
-    let lines = shared::read_input(day)?;
+fn part2() -> Result<i32> {
+    let lines = shared::read_input(DAY)?;
 
     let mut windows: Vec<Vec<i32>> = Vec::new();
     let mut prev = i32::MAX;
