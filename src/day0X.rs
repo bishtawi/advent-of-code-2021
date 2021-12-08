@@ -5,19 +5,20 @@ const DAY: i32 = ?;
 
 #[allow(dead_code)]
 pub fn solve() -> Result<()> {
-    println!("Day {} = {} :: {}", DAY, part1()?, part2()?);
+    let input = parse()?;
+    println!("Day {} = {} :: {}", DAY, part1(&input), part2(&input));
 
     Ok(())
 }
 
-fn part1() -> Result<i32> {
-    let _lines = shared::read_input(DAY)?;
-
-    Ok(0)
+fn parse() -> Result<Vec<i32>> {
+    let mut lines = shared::read_input(DAY)?;
 }
 
-fn part2() -> Result<i32> {
-    let _lines = shared::read_input(DAY)?;
+fn part1(input: &[i32]) -> i32 {
+    -1
+}
 
-    Ok(0)
+fn part2(input: &[i32]) -> i32 {
+    -1
 }

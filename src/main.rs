@@ -8,6 +8,7 @@ mod day03;
 mod day04;
 mod day05;
 mod day06;
+mod day07;
 mod shared;
 
 const SOLVERS: &[fn() -> Result<()>] = &[
@@ -17,6 +18,7 @@ const SOLVERS: &[fn() -> Result<()>] = &[
     day04::solve,
     day05::solve,
     day06::solve,
+    day07::solve,
 ];
 
 fn main() -> Result<()> {

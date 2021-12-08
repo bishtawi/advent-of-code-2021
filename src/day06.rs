@@ -1,5 +1,5 @@
 use crate::shared;
-use anyhow::{anyhow, Result};
+use anyhow::Result;
 
 const DAY: i32 = 6;
 
@@ -12,9 +12,11 @@ pub fn solve() -> Result<()> {
 }
 
 fn parse() -> Result<Vec<u8>> {
-    let mut lines = shared::read_input(DAY)?;
-    let line = lines.next().ok_or(anyhow!("missing line"))??;
-    Ok(line.split(',').map(|x| x.parse::<u8>().unwrap()).collect())
+    let contents = shared::read_input_as_string(DAY)?;
+    Ok(contents
+        .split(',')
+        .map(|x| x.parse::<u8>().unwrap())
+        .collect())
 }
 
 fn lifecycle(fishes: &mut Vec<u8>, cycles: i32) {
