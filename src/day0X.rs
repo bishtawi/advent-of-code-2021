@@ -12,7 +12,7 @@ pub fn solve() -> Result<()> {
 }
 
 fn parse() -> Result<Vec<i32>> {
-    let mut lines = shared::read_input(DAY)?;
+    let lines = shared::read_input(DAY)?;
 }
 
 fn part1(input: &[i32]) -> i32 {
