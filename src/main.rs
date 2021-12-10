@@ -10,9 +10,11 @@ mod day05;
 mod day06;
 mod day07;
 mod day09;
+mod day10;
 mod shared;
 
 const SOLVERS: &[fn() -> Result<()>] = &[
+    day10::solve,
     day09::solve,
     day07::solve,
     day06::solve,
