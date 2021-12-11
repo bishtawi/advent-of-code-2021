@@ -9,7 +9,6 @@ enum Command {
     Up(i32),
 }
 
-#[allow(dead_code)]
 pub fn solve() -> Result<()> {
     let cmds = parse()?;
     println!("Day {} = {} :: {}", DAY, part1(&cmds), part2(&cmds));

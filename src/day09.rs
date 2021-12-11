@@ -39,7 +39,6 @@ impl Map {
     }
 }
 
-#[allow(dead_code)]
 pub fn solve() -> Result<()> {
     let input = parse()?;
     println!("Day {} = {} :: {}", DAY, part1(&input), part2(&input));
@@ -51,8 +50,10 @@ fn parse() -> Result<Map> {
     let lines = shared::read_input(DAY)?;
     let data: Vec<Vec<u32>> = lines
         .map(|line| {
-            let line = line.unwrap();
-            line.chars().map(|c| c.to_digit(10).unwrap()).collect()
+            line.unwrap()
+                .chars()
+                .map(|c| c.to_digit(10).unwrap())
+                .collect()
         })
         .collect();
     Ok(Map { data })

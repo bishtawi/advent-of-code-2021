@@ -1,6 +1,7 @@
 #![deny(clippy::all, clippy::pedantic)]
 
-use anyhow::Result;
+use anyhow::{anyhow, Result};
+use std::env;
 
 mod day01;
 mod day02;
@@ -11,24 +12,29 @@ mod day06;
 mod day07;
 mod day09;
 mod day10;
+mod day11;
 mod shared;
 
-const SOLVERS: &[fn() -> Result<()>] = &[
-    day10::solve,
-    day09::solve,
-    day07::solve,
-    day06::solve,
-    day05::solve,
-    day04::solve,
-    day03::solve,
-    day02::solve,
-    day01::solve,
-];
-
 fn main() -> Result<()> {
-    for solver in SOLVERS {
-        solver()?;
-    }
+    let day = env::args()
+        .nth(1)
+        .ok_or(anyhow!("Missing day argument"))?
+        .parse::<u8>()?;
+
+    (match day {
+        1 => day01::solve(),
+        2 => day02::solve(),
+        3 => day03::solve(),
+        4 => day04::solve(),
+        5 => day05::solve(),
+        6 => day06::solve(),
+        7 => day07::solve(),
+        // 8 => day08::solve(),
+        9 => day09::solve(),
+        10 => day10::solve(),
+        11 => day11::solve(),
+        _ => Err(anyhow!("Invalid day {}", day)),
+    })?;
 
     Ok(())
 }

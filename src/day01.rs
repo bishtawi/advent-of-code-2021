@@ -4,7 +4,6 @@ use anyhow::Result;
 const DAY: i32 = 1;
 const WINDOW_SIZE: usize = 3;
 
-#[allow(dead_code)]
 pub fn solve() -> Result<()> {
     let values: Vec<i32> = shared::read_input(DAY)?
         .map(|l| l.unwrap().parse::<i32>().unwrap())

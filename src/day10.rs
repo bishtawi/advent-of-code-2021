@@ -3,7 +3,6 @@ use anyhow::{bail, Result};
 
 const DAY: i32 = 10;
 
-#[allow(dead_code)]
 pub fn solve() -> Result<()> {
     let (illegals, incompletes) = parse()?;
     println!(
@@ -22,9 +21,8 @@ fn parse() -> Result<(Vec<char>, Vec<Vec<char>>)> {
     let mut illegals: Vec<char> = Vec::new();
     let mut incompletes: Vec<Vec<char>> = Vec::new();
     for line in lines {
-        let line = line?;
         let mut stack: Vec<char> = Vec::new();
-        for c in line.chars() {
+        for c in line.unwrap().chars() {
             match c {
                 '(' | '[' | '{' | '<' => stack.push(c),
                 ')' => {

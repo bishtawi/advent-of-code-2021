@@ -3,7 +3,6 @@ use anyhow::{bail, Result};
 
 const DAY: i32 = 3;
 
-#[allow(dead_code)]
 pub fn solve() -> Result<()> {
     let lines: Vec<String> = shared::read_input(DAY)?
         .map(std::result::Result::unwrap)

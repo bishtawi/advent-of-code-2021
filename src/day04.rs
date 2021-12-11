@@ -60,7 +60,6 @@ impl Board {
     }
 }
 
-#[allow(dead_code)]
 pub fn solve() -> Result<()> {
     let (nums, boards) = parse()?;
 

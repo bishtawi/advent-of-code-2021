@@ -66,7 +66,6 @@ impl Line {
     }
 }
 
-#[allow(dead_code)]
 pub fn solve() -> Result<()> {
     let vents = parse()?;
     println!("Day {} = {} :: {}", DAY, part1(&vents), part2(&vents));
