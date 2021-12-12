@@ -10,6 +10,7 @@ mod day04;
 mod day05;
 mod day06;
 mod day07;
+mod day08;
 mod day09;
 mod day10;
 mod day11;
@@ -29,7 +30,7 @@ fn main() -> Result<()> {
         5 => day05::solve(),
         6 => day06::solve(),
         7 => day07::solve(),
-        // 8 => day08::solve(),
+        8 => day08::solve(),
         9 => day09::solve(),
         10 => day10::solve(),
         11 => day11::solve(),
