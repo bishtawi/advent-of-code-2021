@@ -16,6 +16,7 @@ mod day10;
 mod day11;
 mod day12;
 mod day13;
+mod day14;
 mod shared;
 
 fn main() -> Result<()> {
@@ -38,6 +39,7 @@ fn main() -> Result<()> {
         11 => day11::solve(),
         12 => day12::solve(),
         13 => day13::solve(),
+        14 => day14::solve(),
         _ => Err(anyhow!("Invalid day {}", day)),
     })?;
 
