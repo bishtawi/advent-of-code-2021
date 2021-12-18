@@ -1,6 +1,5 @@
-use anyhow::Result;
 use std::fs::File;
-use std::io::{BufRead, BufReader, Lines, Read};
+use std::io::{BufRead, BufReader, Lines, Read, Result};
 
 pub type InputLines = Lines<BufReader<File>>;
 
