@@ -1,3 +1,4 @@
+#![forbid(unsafe_code)]
 #![deny(clippy::all, clippy::pedantic)]
 
 use anyhow::{anyhow, Result};
@@ -26,7 +27,7 @@ mod shared;
 fn main() -> Result<()> {
     let day = env::args()
         .nth(1)
-        .ok_or(anyhow!("Missing day argument"))?
+        .ok_or_else(|| anyhow!("Missing day argument"))?
         .parse::<u8>()?;
 
     (match day {
